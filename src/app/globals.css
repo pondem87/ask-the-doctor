@@ -2,32 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*
+ * GLOBAL STYLES
+ */
+
+.content-container {
+    @apply mx-auto px-4 2xl:px-72 xl:px-60 lg:px-28;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    overflow: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+/*
+ * NAVBAR STYLES
+ */
+
+.navbar-container {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 40%, rgba(0,125,255,1) 100%);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.navbar {
+    @apply flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    @apply text-2xl sm:text-3xl lg:text-5xl;
+    color: white;
+}
+
+.desktop-nav {
+    @apply hidden lg:block;
+}
+
+.desktop-nav a {
+    @apply border-white border rounded transition duration-200 ease-in;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+}
+
+.desktop-nav a:hover {
+    border-color: #d0defa;
+    background-color: #d0defa;
+    font-weight: bold;
+    color: #06001a;
+}
+
+.desktop-nav a:active {
+    border-color: #06001a;
+}
+
+.navbar-menu-icon {
+    @apply h-8 w-8 text-lg lg:hidden;
+    @apply border-white border rounded;
+    margin-right: 1rem;
+    color: white;
+}
+
+.navbar-menu-icon:hover {
+    border-color: #d0defa;
+    background-color: #d0defa;
+    color: #06001a;
+}
+
+.navbar-menu-icon:active {
+    border-color: #06001a;
+}
+
+.dropdown-nav {
+    position: absolute;
+    top: 100%;
+    background: rgba(9,9,121,1);
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.dropdown-nav-hidden {
+    @apply lg:hidden;
+    animation: navbar-close 200ms ease-in forwards;
+}
+
+.dropdown-nav-show {
+    @apply lg:hidden;
+    animation: navbar 200ms ease-in forwards;
+}
+
+.dropdown-nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    @apply transition duration-200 ease-in;
+}
+
+.dropdown-nav a:hover {
+    background: rgb(39, 39, 141);
+    border-left: 5px solid rgb(84, 84, 224);
+}
+
+.dropdown-nav a:active {
+    background: rgb(64, 64, 184);
+    border-left: 5px solid rgb(118, 118, 255);
+}
+
+@keyframes navbar {
+    from {
+        left: 100%;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes navbar-close {
+    from {
+        left: 0;
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        opacity: 0;
+    }
 }
