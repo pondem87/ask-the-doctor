@@ -5,7 +5,7 @@
  * 
  */
 
-console.log("custom js loaded")
+//console.log("custom js loaded")
 const menuIcon = document.querySelector('.navbar-menu-icon');
 const dropdownNav = document.querySelector('.dropdown-nav');
 

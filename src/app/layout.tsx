@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Script from "next/script";
+import Footer from "@/components/shared/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar user={user} />
-        <main className="content-container">
+        <main>
           {children}
         </main>
+        <Footer />
       </body>
       <Script src="/custom.js" />
     </html>

@@ -13,3 +13,18 @@ export type User = {
     address?: string,
     contact?: string 
 }
+
+// type for story card
+export type Story = {
+    id: number,
+    title: string,
+    name: string,
+    surname: string,
+    profession: string,
+    professional_id: number,
+    question: string,
+    response: string,
+    views: number,
+    likes: number,
+    created_at: Date
+}
